@@ -8,10 +8,12 @@ views = Blueprint('views', __name__)
 #definir ruta
 @views.route('/')
 def inicio():
+    print('Inicio')
     return render_template("inicio.html")
 
 @views.route('/calculadora_impuestos')
 def calculadora_impuestos():
+    print('Calculadora')
     return render_template("calculadora.html")
 
 
@@ -40,7 +42,7 @@ def resultado():
 
             # def proyeccion_anual(sueldo,Grat_Julio,Grat_Diciembre,Vec_Grat_Adicionales):
             res = proyeccion_anual(sueldo,Grat_Julio,Grat_Diciembre,vec)
-            print(res)
+            print('resultados')
             return render_template("resultados.html",res=res)
         except:
             return redirect ('/calculadora_impuestos')
