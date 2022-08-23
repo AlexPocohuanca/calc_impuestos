@@ -7,7 +7,7 @@ print('main!')
 
 if __name__ == '__main__':
     #try:
-        app.run(debug=True) #, port = port)
+        app.run(debug=True, use_reloader=False) #, port = port)
     #finally:
         print('caca')
         #pass
