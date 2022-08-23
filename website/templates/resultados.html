@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block title %}Resultados{% endblock %}
+
+
+{% block content %}
+<h1>Proyección anual</h1>
+
+<table>
+
+    <tr>
+        <td align="left"><label>Paga impuestos:</label></td>
+        <td align="right">{{res[12]}}</td>
+    </tr>
+    <tr>
+        <td align="left"><label>Impuestos enero:</label></td>
+        <td align="right">S/. {{res[0]}}</td>
+    </tr>
+
+    <tr>
+        <td align="left"><label>Impuestos febrero:</label></td>
+        <td align="right">S/. {{res[1]}}</td>
+    </tr>
+
+    <tr>
+        <td align="left"><label>Impuestos marzo:</label></td>
+        <td align="right">S/. {{res[2]}}</td>
+    </tr>
+
+    <tr>
+        <td align="left"><label>Impuestos abril:</label></td>
+        <td align="right">S/. {{res[3]}}</td>
+    </tr>
+
+    <tr>
+        <td align="left"><label>Impuestos mayo:</label></td>
+        <td align="right">S/. {{res[4]}}</td>
+    </tr>
+
+    <tr>
+        <td align="left"><label>Impuestos junio:</label></td>
+        <td align="right">S/. {{res[5]}}</td>
+    </tr>
+
+    <tr>
+        <td align="left"><label>Impuestos julio:</label></td>
+        <td align="right">S/. {{res[6]}}</td>
+    </tr>
+
+    <tr>
+        <td align="left"><label>Impuestos agosto:</label></td>
+        <td align="right">S/. {{res[7]}}</td>
+    </tr>
+
+    <tr>
+        <td align="left"><label>Impuestos setiembre:</label></td>
+        <td align="right">S/. {{res[8]}}</td>
+    </tr>
+
+    <tr>
+        <td align="left"><label>Impuestos octubre:</label></td>
+        <td align="right">S/. {{res[9]}}</td>
+    </tr>
+
+    <tr>
+        <td align="left"><label>Impuestos noviembre:</label></td>
+        <td align="right">S/. {{res[10]}}</td>
+    </tr>
+
+    <tr>
+        <td align="left"><label>Impuestos diciembre:</label></td>
+        <td align="right">S/. {{res[11]}}</td>
+    </tr>
+
+</table><br>
+
+
+<a href="/calculadora_impuestos">
+    <button type="button">Volver</button>
+</a>
+
+
+{% endblock %}

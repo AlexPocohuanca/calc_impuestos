@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block title %}Calculadora de impuestos{% endblock %}
+
+
+{% block content %}
+
+
+<h1>Ingrese parámetros en soles (S/.)</h1>
+
+<form action="/calculadora_impuestos/resultado" method="POST">
+    <label for="sueldo"><b>Sueldo:</b></label><br>
+    <input type="number" id="sueldo" name="sueldo" required><br>
+
+    <label for="Grat_Julio"><b>Gratificación de julio:</b></label><br>
+    <input type="number" id="Grat_Julio" name="Grat_Julio" required><br>
+
+    <label for="Grat_Diciembre"><b>Gratificación de diciembre:</b></label><br>
+    <input type="number" id="Grat_Diciembre" name="Grat_Diciembre" required><br><br>
+
+
+    <label><b>Gratificaciones adicionales:</b></label><br>
+
+    <i>En caso no reciba gratificaciones adicionales en algún mes, deje el valor como cero.</i><br><br>
+
+    <table>
+        <tr>
+            <td align="left"><label for="g_ene">Enero:</label></td>
+            <td align="right"><input type="number" id="g_ene" name="g_ene" required value="0"></td>
+        </tr>
+        <tr>
+            <td align="left"><label for="g_feb">Febrero:</label></td>
+            <td align="right"><input type="number" id="g_feb" name="g_feb" required value="0"></td>
+        </tr>
+        <tr>
+            <td align="left"><label for="g_mar">Marzo:</label></td>
+            <td align="right"><input type="number" id="g_mar" name="g_mar" required value="0"></td>
+        </tr>
+        <tr>
+            <td align="left"><label for="g_abr">Abril:</label></td>
+            <td align="right"><input type="number" id="g_abr" name="g_abr" required value="0"></td>
+        </tr>
+        <tr>
+            <td align="left"><label for="g_may">Mayo:</label></td>
+            <td align="right"><input type="number" id="g_may" name="g_may" required value="0"></td>
+        </tr>
+        <tr>
+            <td align="left"><label for="g_jun">Junio:</label></td>
+            <td align="right"><input type="number" id="g_jun" name="g_jun" required value="0"></td>
+        </tr>
+        <tr>
+            <td align="left"><label for="g_jul">Julio:</label></td>
+            <td align="right"><input type="number" id="g_jul" name="g_jul" required value="0"></td>
+        </tr>
+        <tr>
+            <td align="left"><label for="g_aug">Agosto:</label></td>
+            <td align="right"><input type="number" id="g_aug" name="g_aug" required value="0"></td>
+        </tr>
+        <tr>
+            <td align="left"><label for="g_set">Setiembre:</label></td>
+            <td align="right"><input type="number" id="g_set" name="g_set" required value="0"></td>
+        </tr>
+        <tr>
+            <td align="left"><label for="g_oct">Octubre:</label></td>
+            <td align="right"><input type="number" id="g_oct" name="g_oct" required value="0"></td>
+        </tr>
+        <tr>
+            <td align="left"><label for="g_nov">Noviembre:</label></td>
+            <td align="right"><input type="number" id="g_nov" name="g_nov" required value="0"></td>
+        </tr>
+        <tr>
+            <td align="left"><label for="g_dic">Diciembre:</label></td>
+            <td align="right"><input type="number" id="g_dic" name="g_dic" required value="0"></td>
+        </tr>
+    </table>
+    <input type="submit" value="Calcular">
+</form>
+
+
+
+<p>{{err_msg}}<p>
+{% endblock %}
