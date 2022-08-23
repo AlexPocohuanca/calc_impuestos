@@ -20,7 +20,7 @@ def resultado():
     print(request.method)
     
     if request.method == 'POST':
-        #try:
+        try:
             sueldo = float(request.form["sueldo"])
             Grat_Julio = float(request.form["Grat_Julio"])
             Grat_Diciembre = float(request.form["Grat_Diciembre"])
@@ -42,8 +42,8 @@ def resultado():
             res = proyeccion_anual(sueldo,Grat_Julio,Grat_Diciembre,vec)
             print(res)
             return render_template("resultados.html",res=res)
-        #except:
-            #return redirect ('/calculadora_impuestos')
+        except:
+            return redirect ('/calculadora_impuestos')
             #return render_template("calculadora.html",err_msg='Ingrese valores numéricos en todos los campos')
 
     
