@@ -6,10 +6,11 @@ print('main!')
 #port = int(os.getenv('PORT'))
 
 if __name__ == '__main__':
+    print('app.run')
     #try:
-        app.run(debug=True, use_reloader=False) #, port = port)
+    app.run(debug=True, use_reloader=False) #, port = port)
     #finally:
-        print('caca')
+    print('I shat myself')
         #pass
 
 
