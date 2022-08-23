@@ -2,18 +2,19 @@ from flask import Blueprint, render_template, request, redirect
 from flask import Flask
 from calc import proyeccion_anual
 
+
 views = Blueprint('views', __name__)
 
 
 #definir ruta
 @views.route('/')
 def inicio():
-    print('Inicio')
+    print('inicio')
     return render_template("inicio.html")
 
 @views.route('/calculadora_impuestos')
 def calculadora_impuestos():
-    print('Calculadora')
+    print('calculadora')
     return render_template("calculadora.html")
 
 
@@ -45,6 +46,7 @@ def resultado():
             print('resultados')
             return render_template("resultados.html",res=res)
         except:
+            print('redirecting')
             return redirect ('/calculadora_impuestos')
             #return render_template("calculadora.html",err_msg='Ingrese valores numéricos en todos los campos')
 
