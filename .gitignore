@@ -4,3 +4,4 @@ __pycache__
 static
 auth.py
 calc.py
+venv
