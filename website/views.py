@@ -81,9 +81,9 @@ def proyeccion_anual(sueldo,Grat_Julio,Grat_Diciembre,Vec_Grat_Adicionales):
     AdicionalNoviembre=ImpuestoAnualProyectado(Vec_Grat_Adicionales[10]+RNA,UIT)-IAP
     AdicionalDiciembre=ImpuestoAnualProyectado(Vec_Grat_Adicionales[11]+RNA,UIT)-IAP
 
-    ImpEnero=IAP/11
-    ImpFebrero=IAP/11
-    ImpMarzo=IAP/11
+    ImpEnero=IAP/12
+    ImpFebrero=IAP/12
+    ImpMarzo=IAP/12
     IAP=IAP-ImpEnero*3
     ImpAbril=IAP/9
     IAP=IAP-ImpAbril
