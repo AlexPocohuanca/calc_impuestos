@@ -15,7 +15,7 @@ def ImpuestoAnualProyectado(RNA,UIT):
         IAP=RNA*0.3
     return IAP
 
-def proyeccion_anual(sueldo,Grat_Julio,Grat_Diciembre,Vec_Grat_Adicionales):
+def proyeccion_anual(sueldo,Grat_Julio,Grat_Diciembre,Vec_Grat_Adicionales,mesinicio):
 
     UIT = 4600
     #sueldo=float(input("Inserte sueldo: "))
@@ -23,7 +23,6 @@ def proyeccion_anual(sueldo,Grat_Julio,Grat_Diciembre,Vec_Grat_Adicionales):
     """
     GJ=float(input("Inserte gratificacion de Julio: "))
     GD=float(input("Inserte gratificacion de Diciembre: "))
-
     AdiEnero=float(input("Inserte gratificacion adicional de Enero (en caso haya): "))
     AdiFebrero=float(input("Inserte gratificacion adicional de Febrero (en caso haya): "))
     AdiMarzo=float(input("Inserte gratificacion adicional de Marzo (en caso haya): "))
@@ -38,11 +37,11 @@ def proyeccion_anual(sueldo,Grat_Julio,Grat_Diciembre,Vec_Grat_Adicionales):
     AdiDiciembre=float(input("Inserte gratificacion adicional de Diciembre (en caso haya): "))
     """
 
-    GJ = Grat_Julio
-    GD = Grat_Diciembre
+    GJ = Grat_Julio if mesinicio<=7 else 0
+    GD = Grat_Diciembre if mesinicio<=12 else 0
 
 
-    RBA=sueldo*12+GJ+GD
+    RBA=sueldo*(13-mesinicio)+GJ+GD
     RNA=RBA-7*UIT
     if(RNA<=0):
         #print("No paga impuestos\n")
@@ -68,36 +67,36 @@ def proyeccion_anual(sueldo,Grat_Julio,Grat_Diciembre,Vec_Grat_Adicionales):
     AdicionalDiciembre=ImpuestoAnualProyectado(AdiDiciembre+RNA)-IAP
     """
 
-    AdicionalEnero=ImpuestoAnualProyectado(Vec_Grat_Adicionales[0]+RNA,UIT)-IAP
-    AdicionalFebrero=ImpuestoAnualProyectado(Vec_Grat_Adicionales[1]+RNA,UIT)-IAP
-    AdicionalMarzo=ImpuestoAnualProyectado(Vec_Grat_Adicionales[2]+RNA,UIT)-IAP
-    AdicionalAbril=ImpuestoAnualProyectado(Vec_Grat_Adicionales[3]+RNA,UIT)-IAP
-    AdicionalMayo=ImpuestoAnualProyectado(Vec_Grat_Adicionales[4]+RNA,UIT)-IAP
-    AdicionalJunio=ImpuestoAnualProyectado(Vec_Grat_Adicionales[5]+RNA,UIT)-IAP
-    AdicionalJulio=ImpuestoAnualProyectado(Vec_Grat_Adicionales[6]+RNA,UIT)-IAP
-    AdicionalAgosto=ImpuestoAnualProyectado(Vec_Grat_Adicionales[7]+RNA,UIT)-IAP
-    AdicionalSetiembre=ImpuestoAnualProyectado(Vec_Grat_Adicionales[8]+RNA,UIT)-IAP
-    AdicionalOctubre=ImpuestoAnualProyectado(Vec_Grat_Adicionales[9]+RNA,UIT)-IAP
-    AdicionalNoviembre=ImpuestoAnualProyectado(Vec_Grat_Adicionales[10]+RNA,UIT)-IAP
-    AdicionalDiciembre=ImpuestoAnualProyectado(Vec_Grat_Adicionales[11]+RNA,UIT)-IAP
+    AdicionalEnero=ImpuestoAnualProyectado(Vec_Grat_Adicionales[0]+RNA,UIT)-IAP if mesinicio<=1 else 0
+    AdicionalFebrero=ImpuestoAnualProyectado(Vec_Grat_Adicionales[1]+RNA,UIT)-IAP if mesinicio<=2 else 0
+    AdicionalMarzo=ImpuestoAnualProyectado(Vec_Grat_Adicionales[2]+RNA,UIT)-IAP if mesinicio<=3 else 0
+    AdicionalAbril=ImpuestoAnualProyectado(Vec_Grat_Adicionales[3]+RNA,UIT)-IAP if mesinicio<=4 else 0
+    AdicionalMayo=ImpuestoAnualProyectado(Vec_Grat_Adicionales[4]+RNA,UIT)-IAP if mesinicio<=5 else 0
+    AdicionalJunio=ImpuestoAnualProyectado(Vec_Grat_Adicionales[5]+RNA,UIT)-IAP if mesinicio<=6 else 0
+    AdicionalJulio=ImpuestoAnualProyectado(Vec_Grat_Adicionales[6]+RNA,UIT)-IAP if mesinicio<=7 else 0
+    AdicionalAgosto=ImpuestoAnualProyectado(Vec_Grat_Adicionales[7]+RNA,UIT)-IAP if mesinicio<=8 else 0
+    AdicionalSetiembre=ImpuestoAnualProyectado(Vec_Grat_Adicionales[8]+RNA,UIT)-IAP if mesinicio<=9 else 0
+    AdicionalOctubre=ImpuestoAnualProyectado(Vec_Grat_Adicionales[9]+RNA,UIT)-IAP if mesinicio<=10 else 0
+    AdicionalNoviembre=ImpuestoAnualProyectado(Vec_Grat_Adicionales[10]+RNA,UIT)-IAP if mesinicio<=11 else 0
+    AdicionalDiciembre=ImpuestoAnualProyectado(Vec_Grat_Adicionales[11]+RNA,UIT)-IAP if mesinicio<=12 else 0
 
-    ImpEnero=IAP/12
-    ImpFebrero=IAP/12
-    ImpMarzo=IAP/12
-    IAP=IAP-ImpEnero*3
-    ImpAbril=IAP/9
+    ImpEnero=IAP/12 if mesinicio==1 else 0
+    ImpFebrero=IAP/12 if mesinicio<=2 else 0
+    ImpMarzo=IAP/12 if mesinicio<=3 else 0
+    IAP=IAP-(ImpEnero+ImpFebrero+ImpMarzo)
+    ImpAbril=IAP/9 if mesinicio<=4 else 0
     IAP=IAP-ImpAbril
-    ImpMayo=IAP/8
-    ImpJunio=IAP/8
-    ImpJulio=IAP/8
-    IAP=IAP-ImpMayo*3
-    ImpAgosto=IAP/5
+    ImpMayo=IAP/8 if mesinicio<=5 else 0
+    ImpJunio=IAP/8 if mesinicio<=6 else 0
+    ImpJulio=IAP/8 if mesinicio<=7 else 0
+    IAP=IAP-(ImpMayo+ImpJunio+ImpJulio)
+    ImpAgosto=IAP/5 if mesinicio<=8 else 0
     IAP=IAP-ImpAgosto
-    ImpSetiembre=IAP/4
-    ImpOctubre=IAP/4
-    ImpNoviembre=IAP/4
-    IAP=IAP-ImpSetiembre*3
-    ImpDiciembre=IAP
+    ImpSetiembre=IAP/4 if mesinicio<=9 else 0
+    ImpOctubre=IAP/4 if mesinicio<=10 else 0
+    ImpNoviembre=IAP/4 if mesinicio<=11 else 0
+    IAP=IAP-(ImpSetiembre+ImpOctubre+ImpNoviembre)
+    ImpDiciembre=IAP if mesinicio<=12 else 0
 
 
     ImpEnero=ImpEnero+AdicionalEnero
@@ -114,6 +113,7 @@ def proyeccion_anual(sueldo,Grat_Julio,Grat_Diciembre,Vec_Grat_Adicionales):
     ImpDiciembre=ImpDiciembre+AdicionalDiciembre
 
     return [ImpEnero,ImpFebrero,ImpMarzo,ImpAbril,ImpMayo,ImpJunio,ImpJulio,ImpAgosto,ImpSetiembre,ImpOctubre,ImpNoviembre,ImpDiciembre,paga_impuestos]
+
 
 
 
